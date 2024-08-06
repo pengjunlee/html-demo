@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    padding:0;
+    background:url("pc-4673923_1920.jpg") no-repeat;
+    background-size: cover;
+}
+.main{
+    position:absolute;
+    width:600px;
+    height:400px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.main svg path{
+    fill:transparent;
+    stroke-width:3;
+    stroke:rgba(22, 160, 133,0.5);
+    stroke-dasharray:2935;
+    stroke-dashoffset:0;
+}
+.main svg:hover path{
+    animation: draw 4s linear forwards;
+}
+
+@keyframes draw{
+    0%{
+        stroke-dashoffset: 0;
+    }
+    30%{
+        stroke-dashoffset: 2935;
+    }
+    60%{
+        stroke-dashoffset: 5870;
+        fill:transparent;
+    }
+    100%{
+        stroke-dashoffset: 5870;
+        fill:rgba(22, 160, 133,0.5);
+    }
+}

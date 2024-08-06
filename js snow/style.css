@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+}
+html{
+    overflow: hidden;
+}
+body{
+    background:url("alley-89197_1920\ \(1\).jpg");
+    background-size:cover;
+}
+h1{
+    color:#0097e6;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    font-size:40px;
+    cursor:default;
+}
+canvas{
+    filter:blur(1px);
+}

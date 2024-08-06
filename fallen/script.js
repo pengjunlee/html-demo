@@ -15,7 +15,7 @@ const SAKURA_SUM = 10;
 const sakuraArray = [];
 
 // 雪花图片数组
-const snowflake_Images = ['./image/snowflakes.png', './image/snowflakes2.png'];
+const snowflake_Images = ['./image/snowflakes.png', './image/snowflakes2.png', './image/snowflakes3.png'];
 
 let mouseX = 0;
 /**

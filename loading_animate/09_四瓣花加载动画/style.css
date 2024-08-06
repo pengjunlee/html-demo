@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.main{
+    width:200px;
+    height:200px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+body{
+    background:black;
+}
+.load{
+    width:calc(50% - 5px);
+    height:calc(50% - 5px);
+    position:absolute;
+    right:0;
+    bottom:0;
+    transform-origin:-5px -5px;
+    animation:roll 4s linear infinite;
+}
+@keyframes roll{
+        100%{
+        transform:rotateZ(360deg);
+        filter:hue-rotate(360deg);
+    }
+}
+.main span{
+    position: absolute;
+    width:50%;
+    height:50%;
+    background:rgba(52, 152, 219,1.0);
+    filter:hue-rotate(calc(90deg * var(--s)));
+    border-radius: 0 50% 50% 50%;
+    transform-origin: -5px -5px;
+    transform:rotateZ(calc(90deg * var(--s)));
+}
+
