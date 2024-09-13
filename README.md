@@ -1,39 +1,54 @@
 # html-demo
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+## CSS动画:
+01. 文字书写动画
+02. 水波文本动画
+03. 太阳系动画
+04. 3D图片立方体
+05. 云雨效果
+06. 数据雨云效果
+07. 漩涡背景效果
+08. 小黄人
+09. 发光立方体
+10. 手机充电动画
+11. 蜡烛火焰效果
+12. 玻璃特效
+13. 画图特效
+14. 
+97. 渐变背景
+98. 自定义滚动条
+99. 旋转的地球仪动画
 
-#### 软件架构
-软件架构说明
+## CSS+JS动画:
+01. 人潮涌动动画背景
+02. 文字时钟
+03. 简约钟表
+04. 漫天飞舞
+05. 文本变形
+06. 流星天空
+07. 网页底部养鱼
+08. 下雪特效
+09. 打字特效
+10. 魔法特效
+11. 樱花飘落
+12. 
+99. 
 
 
-#### 安装教程
+## 加载动画:
+01. 柱状加载动画
+02. 3D立方体加载动画
+03. 3D金字塔加载动画
+04. 3D立方体加载动画
+05. 洗衣机加载动画
+06. 小球上楼梯加载动画
+07. 柱状加载动画
+08. 九宫格加载动画
+09. 四瓣花加载动画
+10. DNA加载动画
+11. 柱状图加载动画
+12. 鬼魂加载动画
+13. 钓鱼加载动画
+14. 滚动文字加载动画
+99. 
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

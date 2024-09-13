@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>同态登录框</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <div class="container">
+          <div class="stars"></div>
+          <div class="top-right">
+              <a href="#">Sign Up</a>
+          </div>
+          <div class="form-container">
+              <h2>登录</h2>
+              <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">登录</button>
+                </form>
+              <a href="#" class="forgot-password">忘记密码？</a>
+          </div>
+
+      </div>
+  
+  <<script>
+              function createStars() {
+                  const starsContainer = document.querySelector('.stars');
+                  const starCount = 20;
+      
+                  for (let i = 0; i < starCount; i++) {
+                      const star = document.createElement('div');
+                      star.classList.add('star');
+                      star.style.left = `${Math.random() * 100}%`;
+                      star.style.top = `${Math.random() * 100}%`;
+                      star.style.animationDelay = `${Math.random() * 5}s`;
+                      starsContainer.appendChild(star);
+                  }
+              }
+      
+              createStars();
+          </script>/body>
+</html>
