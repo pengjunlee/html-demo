@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/iconfont/iconfont.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="music-player-wrapper">
+        <div class="music-player">
+            <audio src="./asset/music/music-1.mp3" id="audio"></audio>
+            <div class="top-bar">
+                <span class="iconfont icon-24gl-volumeMiddle"></span>
+                <div class="progress-bar sound-progress-bar">
+                    <span class="duration-bar sound-duration"></span>
+                    <span class="progress sound-progress">
+                        <span class="round"></span>
+                    </span>
+                </div>
+                <span class="iconfont icon-geciweidianji"></span>
+            </div>
+            <div class="music-info">
+                <div class="info-left">
+                    <img class="music-img" src="./asset/music/music-1.jpg" alt="">
+                    <div class="lyric-mask">
+                        <div class="lyric-wrapper">
+                            <ul id="lyc-content"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <div class="music-name">
+                        <span class="name">Letting go</span>
+                        <span class="musician">汪苏泷/金若晨</span>
+                    </div>
+                    <div class="playback-setting">
+                        <span class="iconfont icon-next previous"></span>
+                        <span class="iconfont icon-bofang"></span>
+                        <span class="iconfont icon-zanting1"></span>
+                        <span class="iconfont icon-next next"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar player-progress-bar">
+                <span class="duration-bar play-duration"></span>
+                <span class="progress player-progress"></span>
+                <span class="time">03:22</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./lyc.js"></script>
+<script>
+    //dom 元素
+    const audio = document.getElementById('audio')
+    const playBtn = document.querySelector('.icon-bofang')
+    const zanTingBtn = document.querySelector('.icon-zanting1')
+    const previousBtn = document.querySelector('.previous')
+    const nextBtn = document.querySelector('.next')
+    const playerProgress = document.querySelector('.player-progress')
+    const timeStr = document.querySelector('.time')
+    const playDurationBar = document.querySelector('.play-duration')
+    const soundDuration = document.querySelector('.sound-duration')
+    const soundProgress = document.querySelector('.sound-progress')
+    const round = document.querySelector('.round')
+    const playerProgressBar = document.querySelector('.player-progress-bar')
+    const soundProgressBar = document.querySelector('.sound-progress-bar')
+    const musicImg = document.querySelector('.music-img')
+    const musician = document.querySelector('.musician')
+    const musicName = document.querySelector('.name')
+    // 歌词滚动wrapper
+    const lycContent = document.getElementById('lyc-content')
+    const lyricWrapper = document.querySelector('.lyric-wrapper')
+    const lycShow = document.querySelector('.icon-geciweidianji')
+    const musicInfo = document.querySelector('.music-info')
+    const infoLeft = document.querySelector('.info-left')
+    const lyricMask = document.querySelector('.lyric-mask')
+
+    let showLycFlag = false
+
+    //变量 
+    let duration, nowPlayIndex = 0
+    const musicList = [{
+        musicSrc: './asset/music/music-1.mp3',
+        musicPic: './asset/music/music-1.jpg',
+        musician: '汪苏泷/金若晨',
+        musicName: 'Letting go'
+    },
+    {
+        musicSrc: './asset/music/music-2.mp3',
+        musicPic: './asset/music/music-2.jpg',
+        musician: 'The Chainsmokers/Halsey/R3HAB',
+        musicName: 'Closer',
+    },
+    {
+        musicSrc: './asset/music/music-3.mp3',
+        musicPic: './asset/music/music-3.jpg',
+        musician: 'ILLENIUM,Nevve',
+        musicName: 'Fractures',
+    },
+    {
+        musicSrc: './asset/music/music-4.mp3',
+        musicPic: './asset/music/music-4.jpg',
+        musician: 'Daniel Powter',
+        musicName: 'Free Loop'
+    }
+]
+
+    // 获取歌词
+    let timeArr = []
+    let lrcArr = []
+    let insertLrcStr = ''
+    const str = lyricStr.split('\n')
+    str.forEach(item => {
+        const splitLyc = item.split(']')
+        timeArr.push(timeFormat(splitLyc[0].substr(1, splitLyc[0].length -4)))
+        lrcArr.push(splitLyc[1])
+        insertLrcStr += `<li>${lrcArr[lrcArr.length - 1]}</li>`
+    })
+    lycContent.innerHTML = insertLrcStr
+    
+    // 添加滚动事件
+    audio.addEventListener('timeupdate', function() {
+        lycSlide()
+    })
+
+    // 歌词正常滚动
+    function lycSlide() {
+
+        let index = binarySearch(timeArr, Math.floor(audio.currentTime))
+        lycContent.style.top = index * -25 + 150 + 'px';
+        [...lycContent.children].forEach(item => {
+            item.className = ''
+        })
+        lycContent.children[index].className = 'active'
+    }
+    // 格式化时间
+    function timeFormat(timeStr) {
+        if(timeStr) {
+            const timeStrArr = timeStr.split(':')
+            const minute = timeStrArr[0][0] == '0' ? timeStrArr[0][1] : timeStrArr[0]
+            const second = timeStrArr[1][0] == '0' ? timeStrArr[1][1] : timeStrArr[1]
+            return parseInt(minute) * 60 + parseInt(second)
+        }
+    }
+
+    // 二分查找
+    function binarySearch(arr, target, left = 0, right = arr.length -1) {
+        if(left > right) return left -1 
+        const mid = Math.floor((left + right) / 2)
+        if(arr[mid] === target) return mid
+        if(arr[mid] > target) {
+            return binarySearch(arr, target, left, mid - 1)
+        } else {
+            return binarySearch(arr, target, mid + 1, right)
+        }
+    }
+
+    // 处理时间显示进度条
+    function timeAndProgress() {
+
+        playerProgress.style.width = audio.currentTime / audio.duration * 100 + '%'
+        let time = audio.duration - audio.currentTime
+        let minue = parseInt(time / 60)
+        let second = parseInt(time % 60)
+        let str = `${minue < 10 ? '0' + minue : minue}:${second < 10 ? '0' + second : second}`
+        timeStr.innerHTML = str
+        lycSlide()
+    }
+
+    // 设置播放的音乐和图片
+    function setMusic(index) {
+        musicImg.src = musicList[index].musicPic
+        audio.src = musicList[index].musicSrc
+        musician.innerHTML = musicList[index].musician
+        musicName.innerHTML = musicList[index].musicName
+        playMusic()
+    }
+
+    // 播放音乐
+    function playMusic() {
+        audio.play()
+        playBtn.style.display = 'none'
+        zanTingBtn.style.display = 'block'
+    }
+
+    // 暂停音乐
+    function pauseMusic() {
+        audio.pause()
+        playBtn.style.display = 'block'
+        zanTingBtn.style.display = 'none'
+    }
+
+    // 上一首
+    function previousMusic() {
+        if (nowPlayIndex == 0) {
+            nowPlayIndex = musicList.length - 1
+        } else {
+            nowPlayIndex--
+        }
+        setMusic(nowPlayIndex)
+    }
+
+    // 下一首
+    function nextMusic() {
+        if (nowPlayIndex == musicList.length - 1) {
+            nowPlayIndex = 0
+        } else {
+            nowPlayIndex++
+        }
+        setMusic(nowPlayIndex)
+    }
+
+    // 显示歌词
+    lycShow.addEventListener('click', function() {
+        if(!showLycFlag) {
+            musicInfo.style.display = 'block'
+            lyricMask.style.display = 'block'
+            infoLeft.style.width = '100%'
+            showLycFlag = true
+        } else {
+            musicInfo.style.display = 'flex'
+            lyricMask.style.display = 'none'
+            infoLeft.style.width = '40%'
+            showLycFlag = false
+        }
+    })
+    // 加载完MP3需要设置时间显示与进度条监听
+    audio.addEventListener("canplay", function () {
+        duration = audio.duration
+        setInterval(function () {
+            timeAndProgress()
+        }, 1000)
+    })
+
+    // 播放完毕监听事件（下一首）
+    audio.addEventListener("ended", function () {
+        nextMusic()
+    })
+
+    // 点击进度条更改播放进度
+    playerProgressBar.addEventListener("click", function (e) {
+        audio.currentTime = e.offsetX / this.offsetWidth * duration
+        debugger
+        timeAndProgress()
+    })
+
+    // 点击声音条更改声音大小
+    soundDuration.addEventListener('click', function (e) {
+        audio.volume = e.offsetX / this.offsetWidth
+        soundProgress.style.width = e.offsetX / this.offsetWidth * 100 + '%'
+    })
+
+    // 声音拖动
+    round.addEventListener('mousedown', function () {
+        let soundBarLength = soundProgressBar.offsetWidth
+
+        // 鼠标移动
+        document.onmousemove = function (ev) {
+            let myEvent = ev || event
+            let disX = myEvent.clientX - soundProgressBar.getBoundingClientRect().left
+            if (disX > soundBarLength) {
+                disX = soundBarLength
+            } else if (disX == 0) {
+                disX = 0
+            }
+            soundProgress.style.width = disX / soundBarLength * 100 + '%'
+            audio.volume = disX / soundBarLength
+        }
+
+        // 鼠标抬起
+        document.onmouseup = function () {
+            document.onmousemove = null
+            document.onmouseup = null
+        }
+    })
+    // 显示歌词
+
+
+    // 播放
+    playBtn.addEventListener('click', function () {
+        playMusic()
+    })
+
+    // 暂停
+    zanTingBtn.addEventListener('click', function () {
+        pauseMusic()
+    })
+
+    // 上一首歌
+    previousBtn.addEventListener('click', function () {
+        previousMusic()
+    })
+
+    // 下一首歌
+    nextBtn.addEventListener('click', function () {
+        nextMusic()
+    })
+</script>
+
+</html>
