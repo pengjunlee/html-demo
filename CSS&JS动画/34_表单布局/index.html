@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Form Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+	<!-- Form Wrapper -->
+	<form id="form-wrapper">
+		<div id="form-left-wrapper">
+			<div id="form-tab-menu">
+				<div class="tab-menu-item current shipping-tab">Shipping</div>
+				<div class="tab-menu-item payment-tab">Payment</div>
+				<div class="tab-menu-item confirmation-tab">Confirmation</div>
+			</div>
+			<!-- Body of the Form -->
+			<div id="form-body">
+				<div id="shipping-body">
+					<div id="contact-details">
+						<div class='form-input input-small'>
+							<label>First name ship</label><br/>
+							<input type='text' name='firstname' placeholder='First Name' id='firstname-input' class='name-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Last name</label><br/>
+							<input type='text' name='lastname' placeholder='Last Name' id='lastname-input' class='name-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>E-mail</label><br/>
+							<input type='email' name='email' placeholder='E-Mail Address' id='email-input' class='email-input'/>
+						</div>
+					</div>
+					<div class='hr'></div>
+					<div id="Address-details">
+						<div class='form-input input-small'>
+							<label>Contact Number</label><br/>
+							<input type='number' name='company' placeholder='Contact Number' id='contact-input' class='number-input'/>
+						</div>
+						<div class='form-input input-medium'>
+							<label>Street Address</label><br/>
+							<input type='text' name='address' placeholder='Street Address' id='address-input' class='address-input'/>
+						</div>
+						<!-- Line Break -->
+						<div class='form-input input-small'>
+							<label>Country</label><br/>
+							<input type='text' name='country' placeholder='Country' id='country-input' class='country-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>City</label><br/>
+							<input type='text' name='city' placeholder='City' id='city-input' class='city-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Post Code</label><br/>
+							<input type='number' name='postcode' placeholder='Post Code' id='postcode-input' class='postcode-input'/>
+						</div>
+						<div class='hr' style='margin-bottom: 5px;'></div>
+						<div class='form-input-checkbox'>
+							<input type="checkbox" id="shipping-checkbox"/> My shipping and billing information is the same.
+						</div>
+					</div>
+					<div id="form-submit">
+						<input type='submit' value='Next'/>
+					</div>
+				</div>
+				<div id="payment-body">
+					<div id="contact-details">
+						<div class='form-input input-small'>
+							<label>First name paym</label><br/>
+							<input type='text' name='firstname' placeholder='First Name' id='firstname-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Last name</label><br/>
+							<input type='text' name='lastname' placeholder='Last Name' id='lastname-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>E-mail</label><br/>
+							<input type='email' name='email' placeholder='E-Mail Address' id='email-input'/>
+						</div>
+					</div>
+					<div class='hr'></div>
+					<div id="Address-details">
+						<div class='form-input input-small'>
+							<label>Contact Number</label><br/>
+							<input type='number' name='company' placeholder='Contact Number' id='contact-input'/>
+						</div>
+						<div class='form-input input-medium'>
+							<label>Street Address</label><br/>
+							<input type='text' name='address' placeholder='Street Address' id='address-input'/>
+						</div>
+						<!-- Line Break -->
+						<div class='form-input input-small'>
+							<label>Country</label><br/>
+							<input type='text' name='country' placeholder='Country' id='country-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>City</label><br/>
+							<input type='text' name='city' placeholder='City' id='city-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Post Code</label><br/>
+							<input type='number' name='postcode' placeholder='Post Code' id='postcode-input'/>
+						</div>
+						<div class='hr' style='margin-bottom: 5px;'></div>
+						<div class='form-input-checkbox'>
+							<input type="checkbox" id="shipping-checkbox"/> My shipping and billing information is the same.
+						</div>
+					</div>
+					<div id="form-submit">
+						<input type='submit' value='Next'/>
+					</div>
+				</div>
+				<div id="confirmation-body">
+					<div id="contact-details">
+						<div class='form-input input-small'>
+							<label>First name conf</label><br/>
+							<input type='text' name='firstname' placeholder='First Name' id='firstname-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Last name</label><br/>
+							<input type='text' name='lastname' placeholder='Last Name' id='lastname-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>E-mail</label><br/>
+							<input type='email' name='email' placeholder='E-Mail Address' id='email-input'/>
+						</div>
+					</div>
+					<div class='hr'></div>
+					<div id="Address-details">
+						<div class='form-input input-small'>
+							<label>Contact Number</label><br/>
+							<input type='number' name='company' placeholder='Contact Number' id='contact-input'/>
+						</div>
+						<div class='form-input input-medium'>
+							<label>Street Address</label><br/>
+							<input type='text' name='address' placeholder='Street Address' id='address-input'/>
+						</div>
+						<!-- Line Break -->
+						<div class='form-input input-small'>
+							<label>Country</label><br/>
+							<input type='text' name='country' placeholder='Country' id='country-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>City</label><br/>
+							<input type='text' name='city' placeholder='City' id='city-input'/>
+						</div>
+						<div class='form-input input-small'>
+							<label>Post Code</label><br/>
+							<input type='number' name='postcode' placeholder='Post Code' id='postcode-input'/>
+						</div>
+						<div class='hr' style='margin-bottom: 5px;'></div>
+						<div class='form-input-checkbox'>
+							<input type="checkbox" id="shipping-checkbox"/> My shipping and billing information is the same.
+						</div>
+					</div>
+					<div id="form-submit">
+						<input type='submit' value='Next'/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Shopping Cart Menu -->
+		<div id="form-cart-menu">
+			<div class="shopping-cart-head">
+				<h1>Shopping Cart</h1>
+			</div>
+			<table id="shopping-cart-menu">
+				<tr class='shopping-cart-item'>
+					<td class='cart-title'>Apply First Aid</td>
+					<td class='cart-price'>192.50</td>
+				</tr>
+				<tr class='shopping-cart-item'>
+					<td class='cart-title'>Standard 11 (Generic Mining Induction)</td>
+					<td class='cart-price'>660.00</td>
+				</tr>
+				<tr class='shopping-cart-item'>
+					<td class='cart-title'>Confined Space Entry</td>
+					<td class='cart-price'>302.50</td>
+				</tr>
+				<tr class='shopping-cart-total'>
+					<td class='cart-total'>Total</td>
+					<td class='cart-price-total'></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
