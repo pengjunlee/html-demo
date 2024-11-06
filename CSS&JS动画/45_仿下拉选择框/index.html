@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>仿select-vue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <div style="float:left">
+    <h2>下拉列表</h2>
+    <custom-select btn-value="查询" v-bind:list="data.list1">
+      
+    </custom-select>
+  </div>
+  <div style="float:left">
+    <h2>下拉列表</h2>
+    <custom-select btn-value="搜索" 
+      v-bind:list="data.list2">
+      
+    </custom-select>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

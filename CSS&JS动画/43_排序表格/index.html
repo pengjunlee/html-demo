@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Sortable Table | Vue</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app" class="grid">
+  <h1>Vue <b>Sortable Table</b> 📄</h1>
+  <hr>
+  
+  <label>Users per page</label>
+  <select v-model="pageSizeModel">
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="25">25</option>
+  </select>
+  
+  <table>
+    <thead>
+      <tr>
+        <th :class="{ sorted: sort === 'id' }" @click="sortBy('id')">
+          Id
+        </th>
+        <th :class="{ sorted: sort === 'name' }" @click="sortBy('name')">
+          Name</th>
+        <th :class="{ sorted: sort === 'surname' }" @click="sortBy('surname')" >
+          Surname
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="user in sortedUsers">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name | capitalize }}</td>
+        <td>{{ user.surname | capitalize }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="controls">
+    <button class="btn btn-sm" :disabled="!hasPage(-1)" @click="prevPage">←</button> 
+    <button class="btn btn-sm" :disabled="!hasPage(1)"  @click="nextPage">→</button>
+  </div>
+  
+  <hr>
+  <h2>New User 😊</h2>
+  <form v-on:submit.prevent="addUser">
+    <input type="text" v-model="newUser.name" placeholder="Name" required>
+    <input type="text" v-model="newUser.surname" placeholder="Surname" required>
+    <button type="submit" class="btn">Add user</button>
+  </form>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

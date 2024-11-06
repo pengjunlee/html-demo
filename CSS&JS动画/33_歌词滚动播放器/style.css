@@ -1,9 +1,4 @@
-@font-face {
-  font-family: Moderat;
-  font-weight: 700;
-  src: url(./asset/font/Moderat-Bold.aef2636.ttf) format("truetype"), url(./asset/font/Moderat-Medium.9a1678a.ttf) format("truetype"), url(./asset/font/Moderat-Regular.a2f5d8f.ttf) format("truetype");
-  text-rendering: optimizeLegibility;
-}
+
 .iconfont {
   color: #fff;
   margin: 0 10px;
