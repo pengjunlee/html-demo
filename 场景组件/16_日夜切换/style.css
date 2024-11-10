@@ -1,0 +1,161 @@
+:root {
+  --black: #030303;
+  --darkest-gray: #242424;
+  --darker-gray: #242828;
+  --dark-gray: #414145;
+  --blue: #3CC7F3;
+  --light-blue: #BBEFFF;
+  --opaque-white: rgba(255,255,255, .2);
+  --white: #FFFFFF;
+  --lightest-gray: #EFEFEF;
+  --light-gray: #AAAAAA;
+  --dark-bg-gradient: linear-gradient(-45deg, var(--black), var(--darkest-gray));
+  --light-bg-gradient: linear-gradient(-45deg, var(--darker-gray), var(--dark-gray));
+  --dark-switch-gradient: linear-gradient(45deg, var(--dark-gray), var(--dark-gray));
+  --light-switch-gradient: linear-gradient(-45deg, var(--blue), var(--light-blue));
+  --bg: var(--dark-bg-gradient);
+  --switch-color: var(--dark-switch-gradient);
+  --switch-icon-color: var(--dark-gray);
+  --transition: all 300ms ease;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: var(--transition);
+}
+
+a {
+  color: var(--blue);
+}
+
+body.switched-on .switch {
+  box-shadow: 0px 0px 8px var(--blue);
+}
+
+.switch {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 0;
+  font-family: inherit;
+  background: var(--switch-color);
+  color: var(--switch-icon-color);
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.switch__inner {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--bg);
+  margin: auto;
+  line-height: 62px;
+  box-shadow: 0px 0px 3px var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.switch__icon {
+  width: 28px;
+  height: 28px;
+  opacity: 0;
+  position: relative;
+  -webkit-animation: fadeUp 300ms ease 100ms forwards;
+          animation: fadeUp 300ms ease 100ms forwards;
+}
+.switch:hover {
+  opacity: 0.8;
+  transition: var(--transition);
+}
+.switch:focus, .switch:active {
+  outline: 0;
+}
+
+.circle-transition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--opaque-white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  -webkit-animation: circleTransition 1s ease forwards;
+          animation: circleTransition 1s ease forwards;
+}
+
+@-webkit-keyframes circleTransition {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100vh;
+    height: 100vh;
+    opacity: 0;
+  }
+}
+
+@keyframes circleTransition {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100vh;
+    height: 100vh;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeUp {
+  from {
+    opacity: 0;
+    top: 1.5rem;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    top: 1.5rem;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+.credits {
+  position: fixed;
+  width: 100%;
+  background: var(--darkest-gray);
+  color: var(--white);
+  text-align: center;
+  bottom: 0;
+  padding: 0 1.5rem;
+}
+
+.link--dribbble {
+  color: #ea4c89;
+}
