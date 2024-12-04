@@ -5,11 +5,10 @@ const switchToggle = document.querySelector('.switch');
 const switchInner = document.querySelector('.switch__inner');
 
 const circleTransition = () => {
-  const circle = document.createElement('div');
+  const circle = document.querySelector("button");
   circle.classList = 'circle-transition';
-  document.body.appendChild(circle);
   setTimeout(function () {
-    document.querySelector('.circle-transition').remove();
+circle.classList = '';
   }, 1000);
 };
 
