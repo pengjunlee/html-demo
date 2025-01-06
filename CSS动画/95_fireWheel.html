@@ -1,0 +1,24 @@
+<!DOCTYPE  html>
+<html  lang="zh">
+<head>
+<meta  charset="UTF-8">
+<meta  name="viewport"  content="width=device-width, initial-scale=1.0">
+<meta  name="renderer"  content="webkit"  />
+<meta  name="force-rendering"  content="webkit"  />
+<title></title>
+<script  src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<style>
+  body  {display: flex;justify-content: center;align-items: center;  height:  100vh;  overflow: hidden;background-color:  #000;}canvas{width:  600px;}
+  </style>
+<body>
+<canvas  class="cvs"></canvas>
+</body>
+<script>
+    const  cw = ch =  1600; cvs =  document.querySelector('.cvs'); ctx = cvs.getContext('2d'); dots =  Array(1200); deltaX =  60; deltaY =  60; minDist =  50; ringRadius =  600;cvs.width = cvs.height = cw;
+    for  (let  i=0; i<dots.length; i++){const  angle = i/dots.length *  Math.PI*2;dots[i] = {r: gsap.utils.random(1,1,1),x:  Math.cos(angle)*ringRadius + cw/2,y:  Math.sin(angle)*ringRadius + ch/2,dx:  0,dy:  0,h: gsap.utils.random(10,10,1),a:  1}}
+   gsap.timeline({  onUpdate:render }).to(dots, {duration:  .2,r:.6,h:()=>'random(1,2,1200)',dx:()=>gsap.utils.random(-deltaX, deltaX,  1),dy:()=>gsap.utils.random(-deltaY, deltaY,  1),ease:  'expo',stagger:{amount:90,yoyo:  true,repeat:  -1,repeatRefresh:  true}}).seek(999)
+    function  drawDot(dot){ctx.fillStyle =  'hsla('+dot.h+',100%,100%,'+dot.a+')';ctx.beginPath();ctx.arc(dot.x+dot.dx, dot.y+dot.dy, dot.r,  1,  2*Math.PI);ctx.fill();}
+    function  render(){ctx.clearRect(0,0,cw,ch);dots.forEach((d)=>{drawDot(d);dots.forEach((d2)=>{if  (d==d2) {return};  const  x1 = d.x + d.dx; y1 = d.y + d.dy; x2 = d2.x + d2.dx; y2 = d2.y + d2.dy; dist =  Math.abs(x1-x2) +  Math.abs(y1-y2);if  (dist<minDist) {ctx.lineWidth = gsap.utils.mapRange(0,minDist,2,0,dist); ctx.strokeStyle =  'hsla('+d.h+',100%,50%,'+d.a+')'; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();}})})}
+  </script>
+</html>
